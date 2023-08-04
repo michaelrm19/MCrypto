@@ -1,8 +1,21 @@
+// External Imports
+import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
+
+// Internal Imports
+import { Navbar, Footer } from '../components';
 import '../styles/globals.css';
 
-const Marketplace = ({ Component, pageProps }) => (
+const MyApp = ({ Component, pageProps }) => (
+  <ThemeProvider attribute="class">
+    <div className="dark:bg-nft-dark bg-white min-h-screen">
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </div>
+    <Script src="https://kit.fontawesome.com/8efe200e65.js" crossOrigin="anonymous" />
+  </ThemeProvider>
 
 );
 
-export default Marketplace;
+export default MyApp;
